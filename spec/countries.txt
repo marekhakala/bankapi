@@ -1,0 +1,34 @@
+Austrálie|AUD
+Brazílie|BRL
+Bulharsko|BGN
+Čína|CNY
+Dánsko|DKK
+EMU|EUR
+Filipíny|PHP
+Hongkong|HKD
+Chorvatsko|HRK
+Indie|INR
+Indonesie|IDR
+Izrael|ILS
+Japonsko|JPY
+Jihoafrická rep.|ZAR
+Jižní Korea|KRW
+Kanada|CAD
+Litva|LTL
+Lotyšsko|LVL
+Maďarsko|HUF
+Malajsie|MYR
+Mexiko|MXN
+MMF|XDR
+Norsko|NOK
+Nový Zéland|NZD
+Polsko|PLN
+Rumunsko|RON
+Rusko|RUB
+Singapur|SGD
+Švédsko|SEK
+Švýcarsko|CHF
+Thajsko|THB
+Turecko|TRY
+USA|USD
+Velká Británie|GBP

@@ -21,38 +21,11 @@
 # *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 # ***************************************************************************/
 
-require_relative 'currencymarket'
-require_relative 'money'
-require_relative 'account'
-require_relative 'transaction'
-require_relative 'bank'
+require_relative '../money'
 
-# Example usage
-
-cm = CurrencyMarket.new
-# Online - Normal mode
-cm.sync
-# Offline - Debug mode
-#cm.offlineLoad "spec/denni_kurz.txt"
-
-acc1 = Account.new("4878-9871-1191-2131", "Martin", "Pavel", "Ing.", "PhD.", "CZK")
-acc3 = Account.new("4178-1735-8792-9135", "Paul", "Wester", "BA", "MSc.", "USD")
-
-bank = Bank.new("AlohaBank")
-bank.setMarket cm
-
-bank.createAccount(acc1)
-bank.createAccount(acc3)
-
-acc1.transaction(Transaction.new(Time.now, "Test #1", "+", Money.new(2500, "USD")))
-acc3.transaction(Transaction.new(Time.now, "Test #2", "+", Money.new(1500, "GBP")))
-
-bank.sendMoneyTo(acc1, acc3, Transaction.new(Time.now, "Test #3", "+", Money.new(500, "USD")))
-bank.sendMoneyTo(acc3, acc1, Transaction.new(Time.now, "Test #4", "+", Money.new(250, "USD")))
-
-puts bank
-puts "----------------------------------------------------------------------------------------"
-puts acc1
-puts "----------------------------------------------------------------------------------------" 
-puts acc3
-puts "----------------------------------------------------------------------------------------"
+class String
+  def to_money
+      input = self.scan(/^([[0-9][,.]{0,1}[0-9]*]+)[ ]{0,1}([a-zA-Z]{3})$/)[0]
+          Money.new(input[0], input[1])
+  end
+end

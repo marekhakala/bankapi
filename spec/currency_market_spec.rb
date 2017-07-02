@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+$:.unshift File.dirname(__FILE__)
+
 # ***************************************************************************
 # *   Copyright (C) 2013 by Marek Hakala   *
 # *   hakala.marek@gmail.com   *
@@ -21,26 +24,46 @@
 # *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 # ***************************************************************************/
 
-require "bigdecimal"
+require 'spec_helper'
 
-class Country
-  attr_accessor :country, :currency, :amount, :code, :rate
+require_relative '../currencymarket'
+require_relative '../country'
 
-  def initialize(country, currency, amount, code, rate)
-    @country = country
-    @currency = currency
-
-    @amount = amount
-    @code = code.upcase
-
-    @rate = BigDecimal.new("#{rate}".gsub(/([,])/, '.'))
+describe 'CurrencyMarket' do
+  before(:all) do
+    loadCountries
   end
 
-  def getRate
-    @rate.to_s(' F')
+  def loadCountries
+    @countries = Array.new
+    file = File.new("#{File.dirname(__FILE__)}/countries.txt", "r")
+
+    while (line = file.gets)
+      l1 = line.split(/\n/)[0]
+      l2 = l1.split('|')
+      @countries << l2[1]
+    end
+
+    file.close
   end
 
-  def to_s
-    "Country: #{@country}, Currency: #{@currency}, Amount: #{@amount}, Code: #{@code}, Rate: #{@rate.to_s(' F')}"
+  it "Should have compare file - countries" do
+   state = File.exist?("#{File.dirname(__FILE__)}/countries.txt")
+   state.should be true
+  end
+  
+  it "Should have not empty compare file" do
+    (@countries.size > 0).should be true
+  end
+
+  it "Should have Currency Market synced" do
+    @cm = CurrencyMarket.new
+    @cm.sync
+    (@cm.syncState == "ok").should be true
+
+    @countries.each do |item|
+      c = @cm.findCountry item
+      (c != nil && c.code == item.upcase).should be true
+    end
   end
 end

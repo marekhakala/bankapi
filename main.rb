@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # ***************************************************************************
 # *   Copyright (C) 2013 by Marek Hakala   *
 # *   hakala.marek@gmail.com   *
@@ -21,11 +22,11 @@
 # *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 # ***************************************************************************/
 
-require_relative 'currencymarket'
-require_relative 'money'
-require_relative 'account'
-require_relative 'transaction'
-require_relative 'bank'
+require "./currencymarket"
+require "./money"
+require "./account"
+require "./transaction"
+require "./bank"
 
 # Example usage
 
@@ -53,6 +54,6 @@ bank.sendMoneyTo(acc3, acc1, Transaction.new(Time.now, "Test #4", "+", Money.new
 puts bank
 puts "----------------------------------------------------------------------------------------"
 puts acc1
-puts "----------------------------------------------------------------------------------------" 
+puts "----------------------------------------------------------------------------------------"
 puts acc3
 puts "----------------------------------------------------------------------------------------"

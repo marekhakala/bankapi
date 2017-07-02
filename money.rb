@@ -21,8 +21,8 @@
 # *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 # ***************************************************************************/
 
-require 'bigdecimal'
-require_relative 'core_ext/string'
+require "bigdecimal"
+require "./core_ext/string"
 
 class Money
   attr_reader :value, :currency

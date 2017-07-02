@@ -14,8 +14,6 @@ Japonsko|JPY
 Jihoafrická rep.|ZAR
 Jižní Korea|KRW
 Kanada|CAD
-Litva|LTL
-Lotyšsko|LVL
 Maďarsko|HUF
 Malajsie|MYR
 Mexiko|MXN

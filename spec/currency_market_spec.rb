@@ -51,7 +51,7 @@ describe 'CurrencyMarket' do
    state = File.exist?("#{File.dirname(__FILE__)}/countries.txt")
    state.should be true
   end
-  
+
   it "Should have not empty compare file" do
     (@countries.size > 0).should be true
   end

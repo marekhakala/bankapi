@@ -1,5 +1,24 @@
-#!/usr/bin/env ruby
+# Bank API
 
+The Bank API is school project which demonstrates exchange currency market API usage.
+
+# Run
+* `./main.rb` or `ruby main.rb`
+
+# Run unit tests
+* `rspec ./spec/`
+
+# Screenshots
+
+## Run
+![HTMLParser run](screenshots/run.png)
+
+## RSpec Unit Tests
+![HTMLParser rspec](screenshots/rspec.png)
+
+# License - GNU LGPL 2
+
+```
 # ***************************************************************************
 # *   Copyright (C) 2013 by Marek Hakala   *
 # *   hakala.marek@gmail.com   *
@@ -22,8 +41,4 @@
 # *   Free Software Foundation, Inc.,                                       *
 # *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
 # ***************************************************************************/
-
-RSpec.configure do |config|
-  config.color = true
-  config.expect_with(:rspec) { |c| c.syntax = :should }
-end
+```
